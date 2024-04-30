@@ -1,0 +1,22 @@
+<h1 style="text-align: center;">LISTA DE TIPO DE VEHICULOS</h1>
+<button (click)="nuevo" class="btn btn-warning">Agregar</button>
+<br><br>
+<table class="container" style="width: 30%;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid darkgray; text-align: center;">Codigo</th>
+            <th style="border: 1px solid darkgray; text-align: center;">DESCRIPCION</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tipoVehiculo of tipoVehiculos" style="border: 1px solid darkgray; text-align: center;">
+            <td style="border: 1px solid darkgray;">{{tipoVehiculo.id}}</td>
+            <td style="border: 1px solid darkgray;">{{tipoVehiculo.des_tipoVehiculo}}</td>
+            <td style="text-align: center;">
+                <button (click)="editar(tipoVehiculo)" class="btn btn-warning">Editar</button>
+                <button (click)="eliminar(tipoVehiculo)" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

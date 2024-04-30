@@ -1,0 +1,25 @@
+<h1 style="text-align: center;">LISTA DE VEHICULOS</h1>
+<button (click)="nuevo" class="btn btn-warning">Agregar</button>
+<br>
+<br>
+<table class="container" style="width: 40%;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid darkgray; text-align: center;">Codigo</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Placa</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Color</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vehiculo of vehiculos" style="border: 1px solid darkgray; text-align: center;">
+            <td style="border: 1px solid darkgray;">{{vehiculo.id}}</td>
+            <td style="border: 1px solid darkgray;">{{vehiculo.placa}}</td>
+            <td style="border: 1px solid darkgray;">{{vehiculo.color}}</td>
+            <td style="text-align: center;">
+                <button (click)="editar(vehiculo)" class="btn btn-warning">Editar</button>
+                <button (click)="eliminar(vehiculo)" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

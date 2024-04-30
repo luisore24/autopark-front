@@ -1,0 +1,32 @@
+<h1 style="text-align: center;">LISTA DE CLIENTES</h1>
+<button (click)="nuevo" class="btn btn-warning">Agregar</button>
+<br><br>
+<table class="container">
+    <thead>
+        <tr>
+            <th style="border: 1px solid darkgray; text-align: center;">Codigo</th>
+            <th style="border: 1px solid darkgray; text-align: center;">DNI</th>
+            <th style="border: 1px solid darkgray; text-align: center;">NOMBRES</th>
+            <th style="border: 1px solid darkgray; text-align: center;">APELLIDO PATERNO</th>
+            <th style="border: 1px solid darkgray; text-align: center;">APELLIDO MATERNO</th>
+            <th style="border: 1px solid darkgray; text-align: center;">FECHA NACIMIENTO</th>
+            <th style="border: 1px solid darkgray; text-align: center;">EMAIL</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of clientes" style="border: 1px solid darkgray; text-align: center;">
+            <td style="border: 1px solid darkgray;">{{cliente.id}}</td>
+            <td style="border: 1px solid darkgray;">{{cliente.dni}}</td>
+            <td style="border: 1px solid darkgray;">{{cliente.nombres}}</td>
+            <td style="border: 1px solid darkgray;">{{cliente.apePaterno}}</td>
+            <td style="border: 1px solid darkgray;">{{cliente.apeMaterno}}</td>
+            <td style="border: 1px solid darkgray;">{{cliente.fechaNacimiento}}</td>
+            <td style="border: 1px solid darkgray;">{{cliente.email}}</td>
+            <td style="text-align: center;">
+                <button (click)="editar(cliente)" class="btn btn-warning">Editar</button>
+                <button (click)="eliminar(cliente)" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
