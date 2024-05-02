@@ -1,0 +1,475 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Kumbh Sans", sans-serif;
+    color: white;
+    background-color: #000;
+  }
+
+  h1{
+    font-size: 1.8em;
+    color: yellow;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    padding: 0 24px;
+  }
+  @media (min-width: 1115px) {
+    .header {
+      height: 112px;
+      border-bottom: 1px solid hsl(220deg, 14%, 75%);
+    }
+  }
+  .header__imagen {
+    width: 175px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @media (min-width: 1115px) {
+    .header__imagen {
+      width: 590px;
+    }
+  }
+  .fa-solid fa-bars:hover {
+    cursor: pointer;
+  }
+  @media (min-width: 1115px) {
+    .fa-solid fa-bars {
+      display: none;
+    }
+  }
+  .header__carrito-usuario {
+    display: flex;
+    color: white;
+    font-size:20px;
+    align-items: center;
+    justify-content: space-between;
+    width: 70px;
+  }
+  @media (min-width: 1115px) {
+    .header__carrito-usuario {
+      width: 125px;
+    }
+  }
+  .fa-sharp fa-solid fa-cart-shopping {
+    position: relative;
+  }
+  .header__carrito--notificacion {
+    display: none;
+    background-color: hsl(0deg, 84%, 47%);
+    width: 15px;
+    height: 12px;
+    border-radius: 16px;
+    position: absolute;
+    top: -2px;
+    right: -5px;
+    font-size: 0.6em;
+    text-align: center;
+    color: hsl(0deg, 0%, 100%);
+  }
+  .fa-sharp fa-solid fa-cart-shopping:hover {
+    cursor: pointer;
+  }
+  .fa-solid fa-user {
+    width: 24px;
+  }
+  .icon-login{
+  	color:white;
+  }
+  @media (min-width: 1115px) {
+    .fa-solid fa-user {
+      width: 48px;
+    }
+  }
+  .fa-solid fa-user:hover {
+    cursor: pointer;
+    border: 2px solid hsl(0deg, 84%, 47%);
+    border-radius: 50%;
+  }
+  .header__logo {
+    width: 150px;
+  }
+  
+  .navbar {
+    display: none;
+    width: 400px;
+  }
+  .navbar__menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  .navbar__nombre {
+    text-decoration: none;
+    color: hsl(219deg, 9%, 45%);
+    display: block;
+    height: 110px;
+    padding-top: 45px;
+  }
+  .navbar__nombre:hover {
+    border-bottom: 4px solid hsl(0deg, 84%, 47%);
+  }
+  @media (min-width: 1115px) {
+    .navbar {
+      display: block;
+    }
+  }
+  
+  .modal-navbar {
+    background-color: hsl(0deg, 0%, 100%);
+    width: 250px;
+    height: 100vh;
+    padding: 28px 24px;
+  }
+  .modal-navbar__fondo {
+    background-color: hsla(0deg, 0%, 0%, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .modal-navbar__nombre {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+    list-style: none;
+    margin-top: 50px;
+  }
+  .modal-navbar__nombre {
+    text-decoration: none;
+    color: hsl(220deg, 13%, 13%);
+    font-weight: 700;
+    font-size: 1.1em;
+  }
+  .modal-navbar__close-icon:hover {
+    cursor: pointer;
+  }
+  .banner{
+    width:  100%;
+  }
+  .ofertas__contenedor{
+    width: 100%;
+    display: flex;
+    /*border: 3px solid red;*/
+  }
+  .ofertas{
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-bottom: 3px;
+    margin-bottom: 30px;
+  }
+.ofertas__titulo{
+    font-size: 2em;
+    font-family: ui-serif;
+    color:white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+  .productos__contenedor{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-around;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .ofertas__productos{
+    flex-direction: row;
+    box-sizing: border-box;
+    width: 15%;
+    border: 1px solid gray;
+    box-shadow: 0 0 15px 0 maroon;
+    margin-left: 5px;
+    margin-bottom: 10px;
+  }
+  .ofertas__productos img{
+    width: 100%;
+
+  }
+  .producto__titulo{
+    width: 100%;
+    color:white;
+    font-size: 0.8em;
+    padding:15px;
+    text-align:center;
+    margin-top: 5px;
+    padding-left: 5px;
+    font-family: ui-serif;
+    color: white;
+    height: 60px;
+  }
+  .button__contenedor{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-right: 20px;
+  }
+  .button{
+    margin: 10px 0px 10px 10px;
+    font-size: 2em;
+    color: #e81f1f;
+    border: 3px solid #e81f1f;
+    position: relative;
+    background-color: white;
+    width: 80%;
+    text-decoration: none;
+    padding: 15px;
+    text-align: center;
+  }
+    .button::before,
+    .button::after{
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    border: inherit;
+    transition: all .5s;
+    
+} 
+.button::before{
+    top: -15px;
+    left: -15px;
+    border-width: 3px 0 0 3px;
+}
+.button::after{
+    bottom: -15px;
+    right: -15px;
+    border-width: 0 3px 3px 0;
+}
+
+.button:hover::before,
+.button:hover::after{
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+}
+
+.somos__contenedor{
+    /*border: 1px solid red;*/
+    width: 100%;
+    
+}
+hr{
+    color: #000000;
+    background-color: #000000;
+    position: relative;
+    border: 2px solid;
+    margin-top: 5px;
+}
+.somos{
+    margin: 5px;
+    display: flex;
+    font-size: 1.5em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #000000;
+    
+}
+.somos__titulo{
+    margin:10px;
+    display: flex;
+    justify-content: center;
+    color: #B70E21;
+}
+.somos__texto{
+    margin: 70px 15px;
+    color: aliceblue;
+}
+.somos__imagen{
+    width: 100%;
+    padding: 15px;
+}
+.somos__imagen-img{
+    width: 80%;   
+}
+.contacto__contenedor{
+    margin: 30px 0;
+    /*background: url(../imagenes/OIP.jpg);*/
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, .3);
+    padding: 10px 0;
+}
+.contacto{
+    background: #222222;
+    color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+}
+.contacto__info{
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, .3);
+    margin: 30px;
+    padding: 40px 50px;
+}
+.contacto__datos--cliente{
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, .3);
+    margin: 30px;
+    padding: 40px 5% 40px 20px;
+
+    
+}
+.contacto__datos--cliente form{
+    grid-template-columns: 1fr 1fr;
+}
+.contacto__datos--cliente form label{
+    display: block;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.contacto__datos--cliente form p{
+    margin: 0;
+    padding: 1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+.contacto__datos--cliente form .block{
+    grid-column: 1 / 3;
+}
+.contacto__datos--cliente form input{
+    width: 100%;
+    padding: .6em;
+    border: none;
+    background: none;
+    outline: 0;
+    color: #fff;
+    border-bottom: 2px solid #d63031;
+    margin-right: 100px;
+
+}
+button{
+    background: #B70E21;
+    border: 0;
+    text-transform: uppercase;
+    padding: 1em;
+    color: #fff;
+}
+button:hover,
+button:focus {
+    background: #d63031;
+    color: #fff;
+    transition: background-color 1s ease-out;
+    outline: 0;
+}
+.contacto__titulo{
+    margin: 20px;
+    color: #d63031;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.contacto__parrafo{
+    margin:20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.mapa__contenedor{
+    margin-bottom: 20px;
+}
+.footer__contenedor{
+    color: #fff;
+    width: 100%;
+    background-color: #000000;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;   
+    width: 100%;
+    border: 1px solid rgb(255, 255, 255);
+    color: #777777;
+}
+.footer__redes-contenedor{
+    width: 100%;
+    padding: 0%;
+}
+.footer__logo-contenedor{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    margin-bottom: 10px;
+}
+.footer__logo{
+    width: 60%;
+}
+.footer__redes{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+}
+.redes__logo{
+    width: 8%;
+    margin-right: 10px;
+}
+.footer__visitanos{
+    margin: 30px 20px 10px 20px;
+    width: 100%;
+    height: 10%;
+    
+}
+.footer__visitanos p{
+  margin-bottom: 5px;
+  font-size: 1em;
+  margin-left: 20px;
+}
+.visitanos__titulo{
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    margin-top: 0.5px;
+    margin-left: 20px;
+}
+
+.footer__horarios{
+    margin-left: 1%;
+    width: 100%;
+    height: 20%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.horarios__titulo{
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 5%;
+}
+.footer__horarios li{
+    font-size: 1em;
+    margin-bottom: 5px;
+    margin-left: 6%;
+}
+.footer__suscribete{
+    margin-left: 1%;
+    height: 10%;
+    width: 100%;
+    
+}
+.suscribete__titulo{
+    font-size: 1.5em;
+    margin: 6%;
+    margin-right: 25%;
+}
+.footer__suscribete p{
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+.footer__suscribete input{
+	color:white;
+  margin-left: 20px;
+  padding:10px;
+}
+
+#Nosotros{
+  scroll-snap-type: proximity;
+}
