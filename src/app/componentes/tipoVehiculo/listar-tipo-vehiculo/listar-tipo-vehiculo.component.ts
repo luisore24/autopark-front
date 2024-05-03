@@ -1,17 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { TipoVehiculo } from '../../../modelos/TipoVehiculo';
 import { TipoVehiculoService } from '../../../servicio/tipo-vehiculo.service';
 
 @Component({
   selector: 'app-listar-tipo-vehiculo',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterModule],
+  imports: [CommonModule, RouterOutlet, RouterModule],
   templateUrl: './listar-tipo-vehiculo.component.html',
   styleUrl: './listar-tipo-vehiculo.component.css'
 })
-export class ListarTipoVehiculoComponent {
+export class ListarTipoVehiculoComponent implements OnInit  {
   tipoVehiculos?:TipoVehiculo[];
 
   constructor(private tipoVehiculoService:TipoVehiculoService, private router:Router){ }

@@ -195,7 +195,7 @@
     box-sizing: border-box;
     width: 15%;
     border: 1px solid gray;
-    box-shadow: 0 0 15px 0 maroon;
+    box-shadow: 0 0 15px 0 rgb(204, 204, 6);
     margin-left: 5px;
     margin-bottom: 10px;
   }
@@ -468,6 +468,7 @@ button:focus {
 	color:white;
   margin-left: 20px;
   padding:10px;
+  color: black;
 }
 
 #Nosotros{

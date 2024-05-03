@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VehiculoService } from '../../../servicio/vehiculo.service';
 import { Vehiculo } from '../../../modelos/Vehiculo';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listar-vehiculo',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterModule],
+  imports: [CommonModule, RouterOutlet, RouterModule],
   templateUrl: './listar-vehiculo.component.html',
   styleUrl: './listar-vehiculo.component.css'
 })
-export class ListarVehiculoComponent {
+export class ListarVehiculoComponent implements OnInit  {
 
   vehiculos?:Vehiculo[];
 
@@ -38,7 +38,7 @@ export class ListarVehiculoComponent {
   }
   eliminar(vehiculo:Vehiculo):void{
     this.vehiculoService.deleteVehiculo(vehiculo).subscribe(data=>{
-      this.vehiculos=this.vehiculos!.filter(v=>v!==vehiculo)
+      this.vehiculos=this.vehiculos!.filter(p=>p!==vehiculo)
     });
   }
 }

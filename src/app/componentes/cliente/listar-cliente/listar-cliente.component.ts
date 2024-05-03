@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../../modelos/Cliente';
 import { ClienteService } from '../../../servicio/cliente.service';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listar-cliente',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterModule],
+  imports: [CommonModule, RouterOutlet, RouterModule],
   templateUrl: './listar-cliente.component.html',
   styleUrl: './listar-cliente.component.css'
 })
-export class ListarClienteComponent {
+export class ListarClienteComponent implements OnInit  {
   
   clientes?:Cliente[];
 

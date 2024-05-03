@@ -8,6 +8,9 @@ import { EditClienteComponent } from './componentes/cliente/edit-cliente/edit-cl
 import { ListarTipoVehiculoComponent } from './componentes/tipoVehiculo/listar-tipo-vehiculo/listar-tipo-vehiculo.component';
 import { AddTipoVehiculoComponent } from './componentes/tipoVehiculo/add-tipo-vehiculo/add-tipo-vehiculo.component';
 import { EditTipoVehiculoComponent } from './componentes/tipoVehiculo/edit-tipo-vehiculo/edit-tipo-vehiculo.component';
+import { EditMarcaComponent } from './componentes/marca/edit-marca/edit-marca.component';
+import { ListarMarcaComponent } from './componentes/marca/listar-marca/listar-marca.component';
+import { AddMarcaComponent } from './componentes/marca/add-marca/add-marca.component';
 
 export const routes: Routes = [
     {path:'vehiculos', component:ListarVehiculoComponent},
@@ -18,5 +21,8 @@ export const routes: Routes = [
     {path:'editarCliente',component:EditClienteComponent},
     {path:'tipoVehiculos', component:ListarTipoVehiculoComponent},
     {path:'nuevoTipoVehiculo', component:AddTipoVehiculoComponent},
-    {path:'editarTipoVehiculo',component:EditTipoVehiculoComponent}
+    {path:'editarTipoVehiculo',component:EditTipoVehiculoComponent},
+    {path:'marcas', component:ListarMarcaComponent},
+    {path:'nuevoMarca', component:AddMarcaComponent},
+    {path:'editarMarca',component:EditMarcaComponent}
 ];
