@@ -33,7 +33,7 @@ export class ListarVehiculoComponent implements OnInit  {
     this.router.navigate(['nuevoVehiculo']);
   }
   editar(vehiculo:Vehiculo):void{
-    localStorage.setItem("id",vehiculo.id.toString());
+    localStorage.setItem("id_vehiculo",vehiculo.id_vehiculo.toString());
     this.router.navigate(['editarVehiculo']);
   }
   eliminar(vehiculo:Vehiculo):void{

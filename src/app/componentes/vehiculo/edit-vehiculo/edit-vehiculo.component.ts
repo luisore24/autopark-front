@@ -23,8 +23,8 @@ export class EditVehiculoComponent {
   }
 
   editar(){
-    let id=JSON.parse(localStorage.getItem('id') as string);
-    this.vehiculoService.getVehiculoId(id).subscribe(data=>{
+    let id_vehiculo=JSON.parse(localStorage.getItem('id_vehiculo') as string);
+    this.vehiculoService.getVehiculoId(id_vehiculo).subscribe(data=>{
       this.regVehiculo=data;
     });
   }

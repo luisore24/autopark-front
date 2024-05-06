@@ -13,6 +13,18 @@
                 <label for="">Color:</label>
                 <input type="text" [(ngModel)]="regVehiculo.color" name="color" class="form-control">
             </div>
+            <div class="form-group">
+                <label for="">Tipo Vehiculo:</label>
+                <input type="text" [(ngModel)]="regVehiculo.tipoVehiculoDTO.id" name="tipoVehiculoDTO.id" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Marca:</label>
+                <input type="text" [(ngModel)]="regVehiculo.marcaDTO.id" name="marcaDTO.id" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Codigo Cliente:</label>
+                <input type="text" [(ngModel)]="regVehiculo.clienteDTO.id" name="clienteDTO.id" class="form-control">
+            </div>
             <button (click)="guardar(regVehiculo)" class="btn btn-danger">Guardar</button>
         </form>
     </div>
