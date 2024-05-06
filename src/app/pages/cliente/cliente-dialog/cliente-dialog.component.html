@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>Cliente</h1>
+
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Apellido Paterno</mat-label>
+    <input matInput [(ngModel)]="cliente.apePaterno">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Apellido Materno</mat-label>
+    <input matInput [(ngModel)]="cliente.apeMaterno">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nombres</mat-label>
+    <input matInput [(ngModel)]="cliente.nombres">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo Documento</mat-label>
+    <mat-select [compareWith]="compareTipoDocumento" placeholder="Documento" [(ngModel)]="cliente.tipoDocumento">
+      <mat-option *ngFor="let doc of tDocumento" [value]="doc">
+        {{ doc.descripcion }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nro Documento</mat-label>
+    <input matInput [(ngModel)]="cliente.dni">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="cliente.email">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Fecha Nacimiento</mat-label>
+    <input matInput [(ngModel)]="cliente.fechaNacimiento">
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="accent" (click)="cancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="save()" cdkFocusInitial>Ok</button>
+</div>

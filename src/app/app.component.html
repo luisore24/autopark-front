@@ -31,24 +31,24 @@
     <mat-sidenav #sidenav>
       <img class="logo" src="../assets/logo.jpeg" alt="">
 
-      <button mat-button (click)="sidenav.toggle()"  class="button-span">
-        <span>Atencion</span>
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/cliente']" class="button-span">
+        <span>Clientes</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-button (click)="sidenav.toggle()" class="button-span">
-        <span>Generar Proforma</span>
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/vehiculo']"  class="button-span">
+        <span>Vehiculos</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-button (click)="sidenav.toggle()" class="button-span">
-        <span>Registro de Proforma</span>
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/tipovehiculo']"  class="button-span">
+        <span>Tipo de Vehiculos</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-button (click)="sidenav.toggle()"  class="menu-button">
-        <span>Marca</span>
+      <button mat-button (click)="sidenav.toggle()"  [routerLink]="['/marca']"  class="menu-button">
+        <span>Marcas</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-button (click)="sidenav.toggle()"  class="button-span">
-        <span>Categoria</span>
+      <button mat-button (click)="sidenav.toggle()"  [routerLink]="['/estacionamiento']"  class="button-span">
+        <span>Estacionamientos</span>
       </button>
       <mat-divider></mat-divider>
       <button mat-button (click)="sidenav.toggle()"  class="button-span">

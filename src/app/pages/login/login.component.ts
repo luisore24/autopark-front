@@ -51,7 +51,7 @@ export class LoginComponent {
         this.snack.open("Bienvenido", "AVISO", {
           duration : 3000
         });
-        this.router.navigate(['proforma']);
+        this.router.navigate(['cliente']);
       }
       else{
         //this.clearFields();

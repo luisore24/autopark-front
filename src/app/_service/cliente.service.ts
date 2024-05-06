@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cliente } from '../_model/Cliente';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class ClienteService {
   url = 'http://localhost:8080/api/clientes';
 
   constructor(private http:HttpClient) { }
-  
+
+  refresh  = new Subject<Cliente[]>();
 
   getClientes(){
     return this.http.get<Cliente[]>(this.url);
