@@ -18,8 +18,8 @@ export class VehiculoService {
     return this.http.post<Vehiculo>(this.url,vehiculo);
   }
 
-  getVehiculoId(id:number){
-    return this.http.get<Vehiculo>(this.url+"/"+id);
+  getVehiculoId(id_vehiculo:number){
+    return this.http.get<Vehiculo>(this.url+"/"+id_vehiculo);
   }
 
   updateVehiculo(vehiculo:Vehiculo){
@@ -27,6 +27,6 @@ export class VehiculoService {
   }
 
   deleteVehiculo(vehiculo:Vehiculo){
-    return this.http.delete<Vehiculo>(this.url+"/"+vehiculo.id);
+    return this.http.delete<Vehiculo>(this.url+"/"+vehiculo.id_vehiculo);
   }
 }

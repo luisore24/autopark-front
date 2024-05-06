@@ -1,0 +1,28 @@
+export class Empleado{
+    idEmpleado:number;
+    correo:string;
+    lastname:string;
+    name:string;
+    tipoDocumentoDTO:{
+        idTipoDocumento:number,
+        descripcion:string;}
+    nroDocumento:string;
+    telefono:string;
+    rolDTO:{
+        idRol:number,
+        role:string;}
+    constructor(){
+        this.idEmpleado=0;
+        this.correo="";
+        this.lastname="";
+        this.name="";
+        this.tipoDocumentoDTO={
+            idTipoDocumento:0,
+            descripcion:""};
+        this.nroDocumento="";
+        this.telefono="";
+        this.rolDTO={
+            idRol:0,
+            role:""};
+    }
+}
