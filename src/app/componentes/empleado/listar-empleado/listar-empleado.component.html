@@ -1,0 +1,35 @@
+<h1 style="text-align: center;">LISTA DE EMPLEADOS</h1>
+<button (click)="nuevo()" class="btn btn-warning">Agregar</button>
+<br><br>
+<table class="container">
+    <thead>
+        <tr>
+            <th style="border: 1px solid darkgray; text-align: center;">Codigo</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Correo</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Lastname</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Name</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Tipo Documento</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Nro Documento</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Telefono</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Rol</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let empleado of empleados" style="border: 1px solid darkgray; text-align: center;">
+            <td style="border: 1px solid darkgray;">{{empleado.idEmpleado}}</td>
+            <td style="border: 1px solid darkgray;">{{empleado.correo}}</td>
+            <td style="border: 1px solid darkgray;">{{empleado.lastname}}</td>
+            <td style="border: 1px solid darkgray;">{{empleado.name}}</td>
+            <td style="border: 1px solid darkgray;">{{empleado.tipoDocumentoDTO.descripcion}}</td>
+            <td style="border: 1px solid darkgray;">{{empleado.nroDocumento}}</td>
+            <td style="border: 1px solid darkgray;">{{empleado.telefono}}</td>
+            <td style="border: 1px solid darkgray;">{{empleado.rolDTO.role}}</td>
+            <td style="text-align: center;">
+                <button (click)="editar(empleado)" class="btn btn-warning">Editar</button>
+                <button (click)="eliminar(empleado)" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>

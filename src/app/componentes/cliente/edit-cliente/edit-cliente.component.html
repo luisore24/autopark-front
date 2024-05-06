@@ -5,6 +5,10 @@
     <div class="card-body">
         <form action="">
             <div class="form-group">
+                <label for="">TIPO DOCUMENTO:</label>
+                <input type="text" [(ngModel)]="regCliente.tipoDocumentoDTO.idTipoDocumento" name="tipoDocumentoDTO.idTipoDocumento" class="form-control">
+            </div>
+            <div class="form-group">
                 <label for="">DNI:</label>
                 <input type="text" [(ngModel)]="regCliente.dni" name="dni" class="form-control">
             </div>

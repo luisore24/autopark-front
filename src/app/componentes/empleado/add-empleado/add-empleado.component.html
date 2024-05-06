@@ -1,0 +1,38 @@
+<div class="container col-md-6">
+    <div class="card-header">
+        <h3>Agregar Empleados</h3>
+    </div>
+    <div class="card-body">
+        <form action="">
+            <div class="form-group">
+                <label for="">CORREO:</label>
+                <input type="text" [(ngModel)]="regEmpleado.correo" name="correo" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">LASTNAME:</label>
+                <input type="text" [(ngModel)]="regEmpleado.lastname" name="lastname" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">NAME:</label>
+                <input type="text" [(ngModel)]="regEmpleado.name" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">TIPO DOCUMENTO:</label>
+                <input type="text" [(ngModel)]="regEmpleado.tipoDocumentoDTO.idTipoDocumento" name="tipoDocumentoDTO.idTipoDocumento" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">NRO_DOCUMENTO:</label>
+                <input type="text" [(ngModel)]="regEmpleado.nroDocumento" name="nro_documento" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">TELEFONO:</label>
+                <input type="text" [(ngModel)]="regEmpleado.telefono" name="telefono" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">ROL:</label>
+                <input type="text" [(ngModel)]="regEmpleado.rolDTO.idRol" name="rolDTO.idRol" class="form-control">
+            </div>
+            <button (click)="guardar(regEmpleado)" class="btn btn-danger">Guardar</button>
+        </form>
+    </div>
+</div>

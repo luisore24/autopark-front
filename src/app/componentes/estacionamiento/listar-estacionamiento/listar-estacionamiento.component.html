@@ -1,0 +1,29 @@
+<h1 style="text-align: center;">LISTA DE ESTACIONAMIENTOS</h1>
+<button (click)="nuevo()" class="btn btn-warning">Agregar</button>
+<br><br>
+<table class="container" style="width: 50%;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid darkgray; text-align: center;">ID</th>
+            <th style="border: 1px solid darkgray; text-align: center;">CODIGO</th>
+            <th style="border: 1px solid darkgray; text-align: center;">ESTADO</th>
+            <th style="border: 1px solid darkgray; text-align: center;">NIVEL</th>
+            <th style="border: 1px solid darkgray; text-align: center;">TIPO ESTACIONAMIENTO</th>
+            <th style="border: 1px solid darkgray; text-align: center;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let estacionamiento of estacionamientos" style="border: 1px solid darkgray; text-align: center;">
+            <td style="border: 1px solid darkgray;">{{estacionamiento.idEstacionamiento}}</td>
+            <td style="border: 1px solid darkgray;">{{estacionamiento.codEstacionamiento}}</td>
+            <td style="border: 1px solid darkgray;">{{estacionamiento.estado}}</td>
+            <td style="border: 1px solid darkgray;">{{estacionamiento.nivel}}</td>
+            <td style="border: 1px solid darkgray;">{{estacionamiento.tipoEstacionamiento}}</td>
+            <td style="text-align: center;">
+                <button (click)="editar(estacionamiento)" class="btn btn-warning">Editar</button>
+                <button (click)="eliminar(estacionamiento)" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>

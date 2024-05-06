@@ -1,0 +1,26 @@
+<div class="container col-md-6">
+    <div class="card-header">
+        <h3>Actualizar Estacionamientos</h3>
+    </div>
+    <div class="card-body">
+        <form action="">
+            <div class="form-group">
+                <label for="">CODIGO:</label>
+                <input type="text" [(ngModel)]="regEstacionamiento.codEstacionamiento" name="codEstacionamiento" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">ESTADO:</label>
+                <input type="text" [(ngModel)]="regEstacionamiento.estado" name="estado" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">NIVEL:</label>
+                <input type="text" [(ngModel)]="regEstacionamiento.nivel" name="nivel" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">TIPO ESTACIONAMIENTO:</label>
+                <input type="text" [(ngModel)]="regEstacionamiento.tipoEstacionamiento" name="tipoEstacionamiento" class="form-control">
+            </div>
+            <button (click)="actualizar(regEstacionamiento)" class="btn btn-danger">Actualizar</button>
+        </form>
+    </div>
+</div>
