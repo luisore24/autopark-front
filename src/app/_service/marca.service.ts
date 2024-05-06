@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Marca } from '../_model/Marca';
+import { MarcaDTO } from '../_model/MarcaDTO';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -12,25 +12,25 @@ export class MarcaService {
 
   constructor(private http:HttpClient) { }
 
-  refresh  = new Subject<Marca[]>();
+  refresh  = new Subject<MarcaDTO[]>();
 
   getMarcas(){
-    return this.http.get<Marca[]>(this.url);
+    return this.http.get<MarcaDTO[]>(this.url);
   }
 
-  createMarca(marca: Marca){
-    return this.http.post<Marca>(this.url,marca);
+  createMarca(marca: MarcaDTO){
+    return this.http.post<MarcaDTO>(this.url,marca);
   }
 
   getMarcaId(id:number){
-    return this.http.get<Marca>(this.url+"/"+id);
+    return this.http.get<MarcaDTO>(this.url+"/"+id);
   }
 
-  updateMarca(marca:Marca){
-    return this.http.put<Marca>(this.url,marca);
+  updateMarca(marca:MarcaDTO){
+    return this.http.put<MarcaDTO>(this.url,marca);
   }
 
-  deleteMarca(marca:Marca){
-    return this.http.delete<Marca>(this.url+"/"+marca.id);
+  deleteMarca(id:number){
+    return this.http.delete(this.url+"/"+id);
   }
 }

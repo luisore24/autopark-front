@@ -2,18 +2,18 @@
 
 <div mat-dialog-content>
   <mat-form-field appearance="fill">
-    <mat-label>Apellido Paterno</mat-label>
+    <mat-label>Placa</mat-label>
     <input matInput [(ngModel)]="vehiculo.placa">
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Apellido Materno</mat-label>
+    <mat-label>Color</mat-label>
     <input matInput [(ngModel)]="vehiculo.color">
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Tipo Vehiculo</mat-label>
-    <mat-select [compareWith]="compareTipoVehiculo" placeholder="Tipo Vehiculo" [(ngModel)]="vehiculo.tipoVehiculo">
+    <mat-select [compareWith]="compareTipoVehiculo" placeholder="Tipo Vehiculo" [(ngModel)]="vehiculo.tipoVehiculoDTO">
       <mat-option *ngFor="let tveh of tvehiculo" [value]="tveh">
         {{ tveh.des_tipoVehiculo }}
       </mat-option>
@@ -22,7 +22,7 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Marca</mat-label>
-    <mat-select [compareWith]="compareMarcas" placeholder="Marca" [(ngModel)]="vehiculo.marca">
+    <mat-select [compareWith]="compareMarcas" placeholder="Marca" [(ngModel)]="vehiculo.marcaDTO">
       <mat-option *ngFor="let marca of marcas" [value]="marca">
         {{ marca.des_marca }}
       </mat-option>

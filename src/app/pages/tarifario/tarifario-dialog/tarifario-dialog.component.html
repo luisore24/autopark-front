@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Marca</h1>
+
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo Vehiculo</mat-label>
+    <mat-select [compareWith]="compareTipoVehiculo" placeholder="Tipo Vehiculo" [(ngModel)]="tarifario.tipoVehiculoDTO">
+      <mat-option *ngFor="let tveh of tvehiculo" [value]="tveh">
+        {{ tveh.des_tipoVehiculo }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descripción de la Marca</mat-label>
+    <input matInput [(ngModel)]="tarifario.descripcion">
+  </mat-form-field>
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Descripción de la Marca</mat-label>
+    <input matInput type="number" [(ngModel)]="tarifario.monto">
+  </mat-form-field> -->
+  <mat-form-field floatLabel="always">
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" class="example-right-align" placeholder="0" [(ngModel)]="tarifario.monto">
+    <span matTextPrefix>S/&nbsp;</span>
+    <span matTextSuffix>.00</span>
+  </mat-form-field>
+
+
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="accent" (click)="cancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="save()" cdkFocusInitial>Ok</button>
+</div>

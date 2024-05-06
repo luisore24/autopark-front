@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Cliente } from '../../_model/Cliente';
+import { ClienteDTO } from '../../_model/ClienteDTO';
 import { ClienteService } from '../../_service/cliente.service';
 import { Router } from '@angular/router';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table'
@@ -8,7 +8,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import { TipoDocumento } from '../../_model/TipoDocumento';
 import { ClienteDialogComponent } from './cliente-dialog/cliente-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -21,10 +20,10 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ClienteComponent {
 
-  dataSource!: MatTableDataSource<Cliente>;
-  displayedColumns: string[] = ['id', 'ape_paterno', 'ape_materno' ,'nombres','tipo_documento', 'dni','email','fecha_nacimiento','accion'];
+  dataSource!: MatTableDataSource<ClienteDTO>;
+  displayedColumns: string[] = ['id', 'apePaterno', 'apeMaterno' ,'nombres','tipoDocumentoDTO', 'dni','email','accion'];
 
-  clientes?:Cliente[];
+  clientes?:ClienteDTO[];
 
   constructor(private clienteService:ClienteService, private router:Router,public dialog : MatDialog){ }
 
@@ -48,27 +47,16 @@ export class ClienteComponent {
     ); */
   }
 
-  nuevo():void{
-    this.router.navigate(['nuevoCliente']);
-  }
-  editar(cliente:Cliente):void{
-    this.router.navigate(['editarCliente']);
-  }
-  eliminar(cliente:Cliente):void{
-    this.clienteService.deleteCliente(cliente).subscribe(data=>{
-      this.clientes=this.clientes!.filter(c=>c!==cliente)
-    });
-  }
 
-  openDialog(cliente? : Cliente){
-    let mar = cliente!=null ? cliente : new TipoDocumento();
+  openDialog(cliente? : ClienteDTO){
+    let mar = cliente!=null ? cliente : new ClienteDTO();
     this.dialog.open(ClienteDialogComponent, {
       width : '400px',
       data : mar 
     });
   }
-  delete(cliente : Cliente){
-    this.clienteService.deleteCliente(cliente).subscribe(() =>{
+  delete(id : number){
+    this.clienteService.deleteCliente(id).subscribe(() =>{
       this.clienteService.getClientes().subscribe(data => {
         this.clienteService.refresh.next(data);
       });

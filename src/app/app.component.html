@@ -29,7 +29,7 @@
 
   <mat-sidenav-container [ngClass]="loginService.isLogged() ? 'container-fix' : 'full-container'">
     <mat-sidenav #sidenav>
-      <img class="logo" src="../assets/logo.jpeg" alt="">
+      <!-- <img class="logo" src="../assets/logo.jpeg" alt=""> -->
 
       <button mat-button (click)="sidenav.toggle()" [routerLink]="['/cliente']" class="button-span">
         <span>Clientes</span>
@@ -51,8 +51,20 @@
         <span>Estacionamientos</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-button (click)="sidenav.toggle()"  class="button-span">
-        <span>Producto</span>
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/tipodocumento']" class="button-span">
+        <span>Tipos de Documento</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-button (click)="sidenav.toggle()"  [routerLink]="['/usuario']" class="button-span">
+        <span>Usuarios</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-button (click)="sidenav.toggle()"  [routerLink]="['/rol']" class="button-span">
+        <span>Roles</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/tarifario']" class="button-span">
+        <span>Tarifario</span>
       </button>
       <mat-divider></mat-divider>
     </mat-sidenav>

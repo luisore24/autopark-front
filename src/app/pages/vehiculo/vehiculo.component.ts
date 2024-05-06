@@ -6,9 +6,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import { TipoDocumento } from '../../_model/TipoDocumento';
 import { MatDialog } from '@angular/material/dialog';
-import { Vehiculo } from '../../_model/Vehiculo';
+import { VehiculoDTO } from '../../_model/VehiculoDTO';
 import { VehiculoService } from '../../_service/vehiculo.service';
 import { VehiculoDialogComponent } from './vehiculo-dialog/vehiculo-dialog.component';
 
@@ -20,10 +19,10 @@ import { VehiculoDialogComponent } from './vehiculo-dialog/vehiculo-dialog.compo
   styleUrl: './vehiculo.component.css'
 })
 export class VehiculoComponent {
-  dataSource!: MatTableDataSource<Vehiculo>;
-  displayedColumns: string[] = ['id', 'placa', 'color' ,'tipoVehiculo','marca','accion'];
+  dataSource!: MatTableDataSource<VehiculoDTO>;
+  displayedColumns: string[] = ['id', 'placa', 'color' ,'tipoVehiculoDTO','marcaDTO','accion'];
 
-  vehiculo?:Vehiculo[];
+  vehiculo?:VehiculoDTO[];
 
   constructor(private vehiculoService:VehiculoService, private router:Router,public dialog : MatDialog){ }
 
@@ -36,39 +35,18 @@ export class VehiculoComponent {
     this.vehiculoService.refresh.subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     });
-
-    /* this.vehiculoService.getVehiculos().subscribe(
-      data=>{
-        this.vehiculos=data;
-        console.log(data);
-      },
-      error=>{
-        console.log(error);
-      }
-    ); */
   }
 
-  nuevo():void{
-    this.router.navigate(['nuevoVehiculo']);
-  }
-  editar(vehiculo:Vehiculo):void{
-    this.router.navigate(['editarVehiculo']);
-  }
-  eliminar(vehiculo:Vehiculo):void{
-    this.vehiculoService.deleteVehiculo(vehiculo).subscribe(data=>{
-      this.vehiculo=this.vehiculo!.filter(c=>c!==vehiculo)
-    });
-  }
 
-  openDialog(vehiculo? : Vehiculo){
-    let mar = vehiculo!=null ? vehiculo : new TipoDocumento();
+  openDialog(vehiculo? : VehiculoDTO){
+    let mar = vehiculo!=null ? vehiculo : new VehiculoDTO();
     this.dialog.open(VehiculoDialogComponent, {
       width : '400px',
       data : mar 
     });
   }
-  delete(vehiculo : Vehiculo){
-    this.vehiculoService.deleteVehiculo(vehiculo).subscribe(() =>{
+  delete(id : number){
+    this.vehiculoService.deleteVehiculo(id).subscribe(() =>{
       this.vehiculoService.getVehiculos().subscribe(data => {
         this.vehiculoService.refresh.next(data);
       });

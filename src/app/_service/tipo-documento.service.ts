@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TipoDocumento } from '../_model/TipoDocumento';
+import { TipoDocumentoDTO } from '../_model/TipoDocumentoDTO';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -11,25 +11,25 @@ export class TipoDocumentoService {
 
   constructor(private http:HttpClient) { }
 
-  refresh  = new Subject<TipoDocumento[]>();
+  refresh  = new Subject<TipoDocumentoDTO[]>();
 
   getTipoDocumentos(){
-    return this.http.get<TipoDocumento[]>(this.url);
+    return this.http.get<TipoDocumentoDTO[]>(this.url);
   }
 
-  createTipoDocumento(TipoDocumento: TipoDocumento){
-    return this.http.post<TipoDocumento>(this.url,TipoDocumento);
+  createTipoDocumento(TipoDocumento: TipoDocumentoDTO){
+    return this.http.post<TipoDocumentoDTO>(this.url,TipoDocumento);
   }
 
   getTipoDocumentoId(id:number){
-    return this.http.get<TipoDocumento>(this.url+"/"+id);
+    return this.http.get<TipoDocumentoDTO>(this.url+"/"+id);
   }
 
-  updateTipoDocumento(TipoDocumento:TipoDocumento){
-    return this.http.put<TipoDocumento>(this.url,TipoDocumento);
+  updateTipoDocumento(TipoDocumento:TipoDocumentoDTO){
+    return this.http.put<TipoDocumentoDTO>(this.url,TipoDocumento);
   }
 
-  deleteTipoDocumento(TipoDocumento:TipoDocumento){
-    return this.http.delete<TipoDocumento>(this.url+"/"+TipoDocumento.idTipoDocumento);
+  deleteTipoDocumento(id:number){
+    return this.http.delete(this.url+"/"+id);
   }
 }

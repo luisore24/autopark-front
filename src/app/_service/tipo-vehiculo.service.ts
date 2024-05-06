@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TipoVehiculo } from '../_model/TipoVehiculo';
+import { TipoVehiculoDTO } from '../_model/TipoVehiculoDTO';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -12,25 +12,25 @@ export class TipoVehiculoService {
 
   constructor(private http:HttpClient) { }
 
-  refresh  = new Subject<TipoVehiculo[]>();
+  refresh  = new Subject<TipoVehiculoDTO[]>();
 
   getTipoVehiculos(){
-    return this.http.get<TipoVehiculo[]>(this.url);
+    return this.http.get<TipoVehiculoDTO[]>(this.url);
   }
 
-  createTipoVehiculo(tipoVehiculo: TipoVehiculo){
-    return this.http.post<TipoVehiculo>(this.url,tipoVehiculo);
+  createTipoVehiculo(tipoVehiculo: TipoVehiculoDTO){
+    return this.http.post<TipoVehiculoDTO>(this.url,tipoVehiculo);
   }
 
   getTipoVehiculoId(id:number){
-    return this.http.get<TipoVehiculo>(this.url+"/"+id);
+    return this.http.get<TipoVehiculoDTO>(this.url+"/"+id);
   }
 
-  updateTipoVehiculo(tipoVehiculo:TipoVehiculo){
-    return this.http.put<TipoVehiculo>(this.url,tipoVehiculo);
+  updateTipoVehiculo(tipoVehiculo:TipoVehiculoDTO){
+    return this.http.put<TipoVehiculoDTO>(this.url,tipoVehiculo);
   }
 
-  deleteTipoVehiculo(tipoVehiculo:TipoVehiculo){
-    return this.http.delete<TipoVehiculo>(this.url+"/"+tipoVehiculo.id);
+  deleteTipoVehiculo(id:number){
+    return this.http.delete(this.url+"/"+id);
   }
 }

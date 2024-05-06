@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Rol</h1>
+
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Descripción Rol</mat-label>
+    <input matInput [(ngModel)]="rol.role">
+  </mat-form-field>
+
+
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="accent" (click)="cancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="save()" cdkFocusInitial>Ok</button>
+</div>

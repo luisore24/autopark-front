@@ -8,6 +8,9 @@ import { MarcaComponent } from './pages/marca/marca.component';
 import { TipoVehiculoComponent } from './pages/tipo-vehiculo/tipo-vehiculo.component';
 import { EstacionamientoComponent } from './pages/estacionamiento/estacionamiento.component';
 import { guardGuard } from './_auth/guard.guard';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { RolComponent } from './pages/rol/rol.component';
+import { TarifarioComponent } from './pages/tarifario/tarifario.component';
 
 
 export const routes: Routes = [
@@ -20,8 +23,10 @@ export const routes: Routes = [
     { path : 'marca', component : MarcaComponent , canActivate: [guardGuard]},
     { path : 'tipovehiculo', component : TipoVehiculoComponent , canActivate: [guardGuard]},
     { path : 'estacionamiento', component : EstacionamientoComponent , canActivate: [guardGuard]},
-   // { path : 'usuario', component : UsuarioComponent },
-    { path : 'tipodocumento', component : TipoDocumentoComponent , canActivate: [guardGuard]}
+    { path : 'usuario', component : UsuarioComponent , canActivate: [guardGuard]},
+    { path : 'rol', component : RolComponent , canActivate: [guardGuard]},
+    { path : 'tipodocumento', component : TipoDocumentoComponent , canActivate: [guardGuard]},
+    { path : 'tarifario', component : TarifarioComponent , canActivate: [guardGuard]}
 
 ];
 

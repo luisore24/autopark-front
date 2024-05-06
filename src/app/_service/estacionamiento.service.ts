@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Estacionamiento } from '../_model/Estacionamiento';
+import { EstacionamientoDTO } from '../_model/EstacionamientoDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -12,25 +12,25 @@ export class EstacionamientoService {
 
   constructor(private http:HttpClient) { }
 
-  refresh  = new Subject<Estacionamiento[]>();
+  refresh  = new Subject<EstacionamientoDTO[]>();
 
   getEstacionamientos(){
-    return this.http.get<Estacionamiento[]>(this.url);
+    return this.http.get<EstacionamientoDTO[]>(this.url);
   }
 
-  createEstacionamiento(estacionamiento: Estacionamiento){
-    return this.http.post<Estacionamiento>(this.url,estacionamiento);
+  createEstacionamiento(estacionamiento: EstacionamientoDTO){
+    return this.http.post<EstacionamientoDTO>(this.url,estacionamiento);
   }
 
   getEstacionamientoId(id:number){
-    return this.http.get<Estacionamiento>(this.url+"/"+id);
+    return this.http.get<EstacionamientoDTO>(this.url+"/"+id);
   }
 
-  updateEstacionamiento(estacionamiento:Estacionamiento){
-    return this.http.put<Estacionamiento>(this.url,estacionamiento);
+  updateEstacionamiento(estacionamiento:EstacionamientoDTO){
+    return this.http.put<EstacionamientoDTO>(this.url,estacionamiento);
   }
 
-  deleteEstacionamiento(estacionamiento:Estacionamiento){
-    return this.http.delete<Estacionamiento>(this.url+"/"+estacionamiento.idEstacionamiento);
+  deleteEstacionamiento(id:number){
+    return this.http.delete(this.url+"/"+id);
   }
 }

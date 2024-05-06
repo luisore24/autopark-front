@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TipoVehiculo } from '../../_model/TipoVehiculo';
+import { TipoVehiculoDTO } from '../../_model/TipoVehiculoDTO';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { TipoVehiculoService } from '../../_service/tipo-vehiculo.service';
 import { Router } from '@angular/router';
@@ -19,10 +19,10 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './tipo-vehiculo.component.css'
 })
 export class TipoVehiculoComponent {
-  dataSource!: MatTableDataSource<TipoVehiculo>;
+  dataSource!: MatTableDataSource<TipoVehiculoDTO>;
   displayedColumns: string[] = ['id', 'des_tipoVehiculo','accion'];
 
-  tipoVehiculos!: TipoVehiculo[];
+  tipoVehiculos!: TipoVehiculoDTO[];
 
   constructor(private tipoVehiculoService: TipoVehiculoService, private router:Router,public dialog : MatDialog){ }
 
@@ -47,15 +47,15 @@ export class TipoVehiculoComponent {
   }
 
 
-  openDialog(tipoVehiculo? : TipoVehiculo){
-    let mar = tipoVehiculo!=null ? tipoVehiculo : new TipoVehiculo();
+  openDialog(tipoVehiculo? : TipoVehiculoDTO){
+    let mar = tipoVehiculo!=null ? tipoVehiculo : new TipoVehiculoDTO();
     this.dialog.open(TipoVehiculoDialogComponent, {
       width : '400px',
       data : mar 
     });
   }
-  delete(tipoVehiculo : TipoVehiculo){
-    this.tipoVehiculoService.deleteTipoVehiculo(tipoVehiculo).subscribe(() =>{
+  delete(id : number){
+    this.tipoVehiculoService.deleteTipoVehiculo(id).subscribe(() =>{
       this.tipoVehiculoService.getTipoVehiculos().subscribe(data => {
         this.tipoVehiculoService.refresh.next(data);
       });

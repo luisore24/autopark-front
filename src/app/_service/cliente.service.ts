@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Cliente } from '../_model/Cliente';
+import { ClienteDTO } from '../_model/ClienteDTO';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -12,25 +12,25 @@ export class ClienteService {
 
   constructor(private http:HttpClient) { }
 
-  refresh  = new Subject<Cliente[]>();
+  refresh  = new Subject<ClienteDTO[]>();
 
   getClientes(){
-    return this.http.get<Cliente[]>(this.url);
+    return this.http.get<ClienteDTO[]>(this.url);
   }
 
-  createCliente(cliente: Cliente){
-    return this.http.post<Cliente>(this.url,cliente);
+  createCliente(cliente: ClienteDTO){
+    return this.http.post<ClienteDTO>(this.url,cliente);
   }
 
   getClienteId(id:number){
-    return this.http.get<Cliente>(this.url+"/"+id);
+    return this.http.get<ClienteDTO>(this.url+"/"+id);
   }
 
-  updateCliente(cliente:Cliente){
-    return this.http.put<Cliente>(this.url,cliente);
+  updateCliente(cliente:ClienteDTO){
+    return this.http.put<ClienteDTO>(this.url,cliente);
   }
 
-  deleteCliente(cliente:Cliente){
-    return this.http.delete<Cliente>(this.url+"/"+cliente.id);
+  deleteCliente(id:number){
+    return this.http.delete(this.url+"/"+id);
   }
 }

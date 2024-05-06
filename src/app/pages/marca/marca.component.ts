@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { MarcaService } from '../../_service/marca.service';
-import { Marca } from '../../_model/Marca';
+import { MarcaDTO } from '../../_model/MarcaDTO';
 import { MarcaDialogComponent } from './marca-dialog/marca-dialog.component';
 import {MatTableModule} from '@angular/material/table'
 import { MatIconModule } from '@angular/material/icon';
@@ -20,10 +20,10 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './marca.component.css'
 })
 export class MarcaComponent {
-  dataSource!: MatTableDataSource<Marca>;
+  dataSource!: MatTableDataSource<MarcaDTO>;
   displayedColumns: string[] = ['id', 'des_marca', 'accion'];
 
-  marcas!: Marca[];
+  marcas!: MarcaDTO[];
 
   constructor(private marcaService: MarcaService, private router:Router,public dialog : MatDialog){ }
 
@@ -49,15 +49,16 @@ export class MarcaComponent {
   }
 
 
-  openDialog(marca? : Marca){
-    let mar = marca!=null ? marca : new Marca();
+  openDialog(marca? : MarcaDTO){
+    let mar = marca!=null ? marca : new MarcaDTO();
+    console.log(marca);
     this.dialog.open(MarcaDialogComponent, {
       width : '400px',
       data : mar 
     });
   }
-  delete(marca : Marca){
-    this.marcaService.deleteMarca(marca).subscribe(() =>{
+  delete(id : number){
+    this.marcaService.deleteMarca(id).subscribe(() =>{
       this.marcaService.getMarcas().subscribe(data => {
         this.marcaService.refresh.next(data);
       });

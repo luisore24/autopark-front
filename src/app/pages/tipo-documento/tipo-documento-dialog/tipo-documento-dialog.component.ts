@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { TipoDocumento } from '../../../_model/TipoDocumento';
+import { TipoDocumentoDTO } from '../../../_model/TipoDocumentoDTO';
 import { TipoDocumentoService } from '../../../_service/tipo-documento.service';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { TipoDocumentoComponent } from '../tipo-documento.component';
@@ -18,21 +18,21 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './tipo-documento-dialog.component.css'
 })
 export class TipoDocumentoDialogComponent {
-  tipoDocumento! : TipoDocumento;
+  tipoDocumento! : TipoDocumentoDTO;
 
 
   constructor(private tipoDocumentoService : TipoDocumentoService,
   public dialogRef : MatDialogRef<TipoDocumentoComponent>,
-  @Inject(MAT_DIALOG_DATA) public data : TipoDocumento) { }
+  @Inject(MAT_DIALOG_DATA) public data : TipoDocumentoDTO) { }
 
   ngOnInit(): void {
-    this.tipoDocumento = new TipoDocumento();
+    this.tipoDocumento = new TipoDocumentoDTO();
     this.tipoDocumento.idTipoDocumento = this.data.idTipoDocumento;
     this.tipoDocumento.descripcion = this.data.descripcion
   }
 
   save(){
-    if(!this.data == null){
+    if(this.data != null){
       this.tipoDocumentoService.updateTipoDocumento(this.tipoDocumento).subscribe(() => {
         this.tipoDocumentoService.getTipoDocumentos().subscribe(data =>{
           this.tipoDocumentoService.refresh.next(data);

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Vehiculo } from '../_model/Vehiculo';
+import { VehiculoDTO } from '../_model/VehiculoDTO';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -12,26 +12,26 @@ export class VehiculoService {
 
   constructor(private http:HttpClient) { }
 
-  refresh  = new Subject<Vehiculo[]>();
+  refresh  = new Subject<VehiculoDTO[]>();
 
   getVehiculos(){
-    return this.http.get<Vehiculo[]>(this.url);
+    return this.http.get<VehiculoDTO[]>(this.url);
   }
 
-  createVehiculo(vehiculo: Vehiculo){
-    return this.http.post<Vehiculo>(this.url,vehiculo);
+  createVehiculo(vehiculo: VehiculoDTO){
+    return this.http.post<VehiculoDTO>(this.url,vehiculo);
   }
 
   getVehiculoId(id:number){
-    return this.http.get<Vehiculo>(this.url+"/"+id);
+    return this.http.get<VehiculoDTO>(this.url+"/"+id);
   }
 
-  updateVehiculo(vehiculo:Vehiculo){
-    return this.http.put<Vehiculo>(this.url,vehiculo);
+  updateVehiculo(vehiculo:VehiculoDTO){
+    return this.http.put<VehiculoDTO>(this.url,vehiculo);
   }
 
-  deleteVehiculo(vehiculo:Vehiculo){
-    return this.http.delete<Vehiculo>(this.url+"/"+vehiculo.id);
+  deleteVehiculo(id:number){
+    return this.http.delete<VehiculoDTO>(this.url+"/"+id);
   }
 
 }

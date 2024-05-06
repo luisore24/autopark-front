@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { TipoVehiculo } from '../../../_model/TipoVehiculo';
+import { TipoVehiculoDTO } from '../../../_model/TipoVehiculoDTO';
 import { TipoVehiculoService } from '../../../_service/tipo-vehiculo.service';
 import { TipoVehiculoComponent } from '../tipo-vehiculo.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -19,21 +19,21 @@ import { MatDialogModule} from '@angular/material/dialog';
   styleUrl: './tipo-vehiculo-dialog.component.css'
 })
 export class TipoVehiculoDialogComponent {
-  tipoVehiculo! : TipoVehiculo;
+  tipoVehiculo! : TipoVehiculoDTO;
 
 
   constructor(private tipoVehiculoService : TipoVehiculoService,
   public dialogRef : MatDialogRef<TipoVehiculoComponent>,
-  @Inject(MAT_DIALOG_DATA) public data : TipoVehiculo) { }
+  @Inject(MAT_DIALOG_DATA) public data : TipoVehiculoDTO) { }
 
   ngOnInit(): void {
-    this.tipoVehiculo = new TipoVehiculo();
+    this.tipoVehiculo = new TipoVehiculoDTO();
     this.tipoVehiculo.id = this.data.id;
     this.tipoVehiculo.des_tipoVehiculo = this.data.des_tipoVehiculo
   }
 
   save(){
-    if(!this.data == null){
+    if(this.data != null){
       this.tipoVehiculoService.updateTipoVehiculo(this.tipoVehiculo).subscribe(() => {
         this.tipoVehiculoService.getTipoVehiculos().subscribe(data =>{
           this.tipoVehiculoService.refresh.next(data);

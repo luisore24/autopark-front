@@ -5,7 +5,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import { TipoDocumento } from '../../_model/TipoDocumento';
+import { TipoDocumentoDTO } from '../../_model/TipoDocumentoDTO';
 import { TipoDocumentoService } from '../../_service/tipo-documento.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -19,10 +19,10 @@ import { TipoDocumentoDialogComponent } from './tipo-documento-dialog/tipo-docum
   styleUrl: './tipo-documento.component.css'
 })
 export class TipoDocumentoComponent {
-  dataSource!: MatTableDataSource<TipoDocumento>;
+  dataSource!: MatTableDataSource<TipoDocumentoDTO>;
   displayedColumns: string[] = ['idTipoDocumento', 'descripcion','accion'];
 
-  tipoDocumentos!: TipoDocumento[];
+  tipoDocumentos!: TipoDocumentoDTO[];
 
   constructor(private tipoDocumentoService: TipoDocumentoService, private router:Router,public dialog : MatDialog){ }
 
@@ -47,15 +47,15 @@ export class TipoDocumentoComponent {
   }
 
 
-  openDialog(tipoDocumento? : TipoDocumento){
-    let mar = tipoDocumento!=null ? tipoDocumento : new TipoDocumento();
+  openDialog(tipoDocumento? : TipoDocumentoDTO){
+    let mar = tipoDocumento!=null ? tipoDocumento : new TipoDocumentoDTO();
     this.dialog.open(TipoDocumentoDialogComponent, {
       width : '400px',
       data : mar 
     });
   }
-  delete(tipoDocumento : TipoDocumento){
-    this.tipoDocumentoService.deleteTipoDocumento(tipoDocumento).subscribe(() =>{
+  delete(id : number){
+    this.tipoDocumentoService.deleteTipoDocumento(id).subscribe(() =>{
       this.tipoDocumentoService.getTipoDocumentos().subscribe(data => {
         this.tipoDocumentoService.refresh.next(data);
       });

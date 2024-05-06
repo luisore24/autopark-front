@@ -18,7 +18,7 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Tipo Documento</mat-label>
-    <mat-select [compareWith]="compareTipoDocumento" placeholder="Documento" [(ngModel)]="cliente.tipoDocumento">
+    <mat-select [compareWith]="compareTipoDocumento" placeholder="Documento" [(ngModel)]="cliente.tipoDocumentoDTO">
       <mat-option *ngFor="let doc of tDocumento" [value]="doc">
         {{ doc.descripcion }}
       </mat-option>
@@ -34,13 +34,8 @@
     <mat-label>Email</mat-label>
     <input matInput [(ngModel)]="cliente.email">
   </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Fecha Nacimiento</mat-label>
-    <input matInput [(ngModel)]="cliente.fechaNacimiento">
-  </mat-form-field>
-
 </div>
+
 <div mat-dialog-actions>
   <button mat-button color="accent" (click)="cancel()">Cancelar</button>
   <button mat-button color="primary" (click)="save()" cdkFocusInitial>Ok</button>
