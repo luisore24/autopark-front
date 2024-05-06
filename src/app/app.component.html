@@ -31,6 +31,9 @@
     <mat-sidenav #sidenav>
       <!-- <img class="logo" src="../assets/logo.jpeg" alt=""> -->
 
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/parqueos']" class="button-span">
+        <span>Parqueo</span>
+      </button>
       <button mat-button (click)="sidenav.toggle()" [routerLink]="['/cliente']" class="button-span">
         <span>Clientes</span>
       </button>

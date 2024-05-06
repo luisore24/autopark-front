@@ -34,4 +34,8 @@ export class VehiculoService {
     return this.http.delete<VehiculoDTO>(this.url+"/"+id);
   }
 
+  buscarPlaca(placa:string){
+    return this.http.get<VehiculoDTO>(this.url+"/buscar/"+placa);
+  }
+
 }
