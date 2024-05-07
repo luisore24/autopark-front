@@ -41,7 +41,7 @@ export class TarifarioDialogComponent {
   }
 
   save(){
-    if(this.data != null){
+    if(this.data.idtarifa){
       this.tarifarioService.updateTarifario(this.tarifario).subscribe(() => {
         this.tarifarioService.getTarifarios().subscribe(data =>{
           this.tarifarioService.refresh.next(data);

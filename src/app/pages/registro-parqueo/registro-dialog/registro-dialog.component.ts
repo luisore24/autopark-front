@@ -61,6 +61,7 @@ export class RegistroDialogComponent {
       let registroParqueoDTO = new RegistroParqueoDTO();
 
       let localISOTime = moment().format('YYYY-MM-DDTHH:mm:ss.sss');
+      //busca la placa, si existe no actualiza el registro,solo toma los datos ya almacenados
       this.vehiculoService.buscarPlaca(this.placa).subscribe((data) => {
         if (data) {
           registroParqueoDTO.horaFechaIngreso = localISOTime;
@@ -73,6 +74,7 @@ export class RegistroDialogComponent {
           });
           console.log('registrado')
         }
+        //si no existe, en ese caso registra los datos ingresados en el formulario
         else {
           let neoCar = new VehiculoDTO();
           neoCar.placa = this.placa;
@@ -102,7 +104,7 @@ export class RegistroDialogComponent {
     this.dialogRef.close();
 
   }
-
+//metodo para validar si la placa existe en el registro
   verificarVehiculo(placa: string) {
 
     this.vehiculoService.buscarPlaca(placa).subscribe(data => this.carroPlaca = data);;

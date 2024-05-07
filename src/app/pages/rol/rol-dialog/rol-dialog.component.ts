@@ -33,7 +33,7 @@ export class RolDialogComponent {
   }
 
   save(){
-    if(this.data != null){
+    if(this.data.idRol){
       this.rolService.updateRol(this.rol).subscribe(() => {
         this.rolService.getRoles().subscribe(data =>{
           this.rolService.refresh.next(data);

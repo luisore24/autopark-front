@@ -44,7 +44,7 @@ export class ClienteDialogComponent {
   }
 
   save(){
-    if(this.data != null){
+    if(this.data.id){
       this.clienteService.updateCliente(this.cliente).subscribe(() => {
         this.clienteService.getClientes().subscribe(data =>{
           this.clienteService.refresh.next(data);

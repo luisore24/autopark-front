@@ -33,7 +33,7 @@ export class TipoVehiculoDialogComponent {
   }
 
   save(){
-    if(this.data != null){
+    if(this.data.id){
       this.tipoVehiculoService.updateTipoVehiculo(this.tipoVehiculo).subscribe(() => {
         this.tipoVehiculoService.getTipoVehiculos().subscribe(data =>{
           this.tipoVehiculoService.refresh.next(data);

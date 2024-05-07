@@ -35,7 +35,7 @@ export class EstacionamientoDialogComponent {
   }
 
   save(){
-    if(this.data != null){
+    if(this.data.idEstacionamiento){
       this.estacionamientoService.updateEstacionamiento(this.estacionamiento).subscribe(() => {
         this.estacionamientoService.getEstacionamientos().subscribe(data =>{
           this.estacionamientoService.refresh.next(data);

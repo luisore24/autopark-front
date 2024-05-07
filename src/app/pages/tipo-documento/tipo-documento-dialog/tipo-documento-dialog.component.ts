@@ -32,7 +32,7 @@ export class TipoDocumentoDialogComponent {
   }
 
   save(){
-    if(this.data != null){
+    if(this.data.idTipoDocumento){
       this.tipoDocumentoService.updateTipoDocumento(this.tipoDocumento).subscribe(() => {
         this.tipoDocumentoService.getTipoDocumentos().subscribe(data =>{
           this.tipoDocumentoService.refresh.next(data);

@@ -34,7 +34,7 @@ export class MarcaDialogComponent {
   }
 
   save(){
-    if(this.data != null){
+    if(this.data.id){
       this.marcaService.updateMarca(this.marca).subscribe(() => {
         this.marcaService.getMarcas().subscribe(data =>{
           this.marcaService.refresh.next(data);

@@ -50,7 +50,8 @@ export class UsuarioComponent {
   }
 
   openDialog(usuario? : UsuarioDTO){
-    let mar = usuario!=null ? usuario : new UsuarioDTO();
+    console.log(usuario);
+    let mar = usuario != null ? usuario : new UsuarioDTO();
     this.dialog.open(UsuarioDialogComponent, {
       width : '400px',
       data : mar 

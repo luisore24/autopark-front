@@ -46,7 +46,7 @@ export class VehiculoDialogComponent {
   }
 
   save(){
-    if(this.data != null){
+    if(this.data.id){
       this.vehiculoService.updateVehiculo(this.vehiculo).subscribe(() => {
         this.vehiculoService.getVehiculos().subscribe(data =>{
           this.vehiculoService.refresh.next(data);

@@ -48,23 +48,28 @@ export class UsuarioDialogComponent {
     this.usuario.rolDTO = this.data.rolDTO
     this.usuario.username = this.data.username;
     this.usuario.password = this.data.password;
+    console.log(this.data);
   }
 
-  save(){
-    if(this.data != null){
+  save(){ 
+    if(!this.data.idUsuario){
+      console.log('metodo crear')
+      this.usuarioService.createUsuario(this.usuario).subscribe(() => {
+        this.usuarioService.getUsuarios().subscribe(data =>{
+          this.usuarioService.refresh.next(data);
+        });
+      });
+    }
+    else{
+      console.log('metodod update')
       this.usuarioService.updateUsuario(this.usuario).subscribe(() => {
         this.usuarioService.getUsuarios().subscribe(data =>{
           this.usuarioService.refresh.next(data);
 
         });
       });
-    }
-    else{
-      this.usuarioService.createUsuario(this.usuario).subscribe(() => {
-        this.usuarioService.getUsuarios().subscribe(data =>{
-          this.usuarioService.refresh.next(data);
-        });
-      });
+
+      
     }
     this.dialogRef.close();
   }
@@ -75,14 +80,12 @@ export class UsuarioDialogComponent {
 
   getTipoDocumento(){
     this.tdocumentoService.getTipoDocumentos().subscribe(data => {
-      console.log(data);
       this.tDocumento = data;
     });
   }
 
   getRoles(){
     this.rolService.getRoles().subscribe(data => {
-      console.log(data);
       this.roles = data;
     });
   }
