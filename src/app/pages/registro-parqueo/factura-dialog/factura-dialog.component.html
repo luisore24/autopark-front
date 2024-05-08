@@ -1,29 +1,33 @@
-<mat-card>
+<mat-card class="content-card">
     <mat-card-title>GENERAR COMPROBANTE</mat-card-title>
+
     <mat-card-content>
 
-        <div mat-dialog-content>
+      <div class="div1"> 
+
+
             <mat-form-field appearance="fill">
               <mat-label>Nombre del cliente</mat-label>
               <input matInput [(ngModel)]="cliente.nombres">
             </mat-form-field>
-        </div>
+     
 
-        <div mat-dialog-content>
+     
             <mat-form-field appearance="fill">
               <mat-label>Apellido Paterno</mat-label>
               <input matInput [(ngModel)]="cliente.apePaterno">
             </mat-form-field>
-        </div>
 
-        <div mat-dialog-content>
+
+ 
             <mat-form-field appearance="fill">
               <mat-label>Apellido Materno</mat-label>
               <input matInput [(ngModel)]="cliente.apeMaterno">
             </mat-form-field>
-        </div>
+  
 
-        <mat-form-field appearance="fill">
+      
+          <mat-form-field appearance="fill">
             <mat-label>Tipo Documento</mat-label>
             <mat-select [compareWith]="compareTipoDocumento" placeholder="Documento" [(ngModel)]="cliente.tipoDocumentoDTO">
               <mat-option *ngFor="let doc of tDocumento" [value]="doc">
@@ -31,49 +35,58 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+   
+        
 
-        <div mat-dialog-content>
+    
             <mat-form-field appearance="fill">
               <mat-label>Nro Documento</mat-label>
               <input matInput [(ngModel)]="cliente.dni">
             </mat-form-field>
-        </div>
+   
 
-        <div mat-dialog-content>
+       
             <mat-form-field appearance="fill">
               <mat-label>Correo</mat-label>
               <input matInput [(ngModel)]="cliente.email">
             </mat-form-field>
-        </div>
-          
-        <mat-divider></mat-divider>
+    
+      </div>
 
-         <table mat-table class="mat-elevation-z8 demo-table">
+        
+      <div class="div2">
+
+         <table  mat-table class="mat-elevation-z8">
             
             <tr>
-                <th>Placa</th>
-                <th>Tipo Vehiculo</th>
-                <th>Tiempo en Horas</th>
-                <th>Tarifa</th>
+                <th mat-header-cell>Placa</th>
+                <th mat-header-cell>Tipo Vehiculo</th>
+                <th mat-header-cell>Tiempo en Horas</th>
+                <th mat-header-cell>Tarifa</th>
             </tr>
 
             <tr>
-                <td>{{registro.vehiculoDTO.placa}}</td>
-                <td>{{registro.vehiculoDTO.tipoVehiculoDTO.des_tipoVehiculo}}</td>
-                <td>{{registro.tiempoParqueo}}</td>
-                <td>{{detalle.preciovta}}</td>
+                <td mat-cell class="tdcenter">{{registro.vehiculoDTO.placa}}</td>
+                <td mat-cell class="tdcenter">{{registro.vehiculoDTO.tipoVehiculoDTO.des_tipoVehiculo}}</td>
+                <td mat-cell class="tdcenter">{{registro.tiempoParqueo}}</td>
+                <td mat-cell class="tdcenter">{{detalle.preciovta}}</td>
             </tr>
             
           </table>
+        </div>
 
     </mat-card-content>
-    <mat-card-actions>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-actions align="end">
         <span>Total : </span>
         <span matPrefix>S/&nbsp;</span>{{  detalle.importe }}<span matSuffix>.00</span>
     </mat-card-actions>
 
     <mat-card-footer >
-        <button mat-button color="accent" class="actions" (click)="aceptar()" cdkFocusInitial>Aceptar</button>
+      <button mat-button color="accent" class="actions" (click)="cancel()" cdkFocusInitial>Cancelar</button>
+        <button mat-button color="accent" class="actions" (click)="aceptar()">Aceptar</button>
     </mat-card-footer>
 
 </mat-card>

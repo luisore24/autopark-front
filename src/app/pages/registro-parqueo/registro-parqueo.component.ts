@@ -72,7 +72,7 @@ export class RegistroParqueoComponent {
   salidaDialog(registro: RegistroParqueoDTO){
     let reg =  registro;
     this.dialog.open(FacturaDialogComponent, {
-      width : '600px',
+      width : '900px',
       data : reg
     });
   }

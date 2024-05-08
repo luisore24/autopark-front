@@ -11,12 +11,18 @@
 
   <div class="content">
 
-    <mat-card-title>Vehiculos parueados</mat-card-title>
+    <mat-card-title>Vehiculos Parqueados</mat-card-title>
 
     <!-- mat-form-field appearance="fill">
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ingrese una marca" #input>
     </mat-form-field> -->
+
+    <div class="button-add">
+      <button mat-fab color="accent" (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
 
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -73,12 +79,6 @@
         <td class="mat-cell" colspan="4">No existe data</td>
       </tr>
     </table>
-
-    <div class="button-add">
-      <button mat-fab color="accent" (click)="openDialog()">
-        <mat-icon>add</mat-icon>
-      </button>
-    </div>
 
   </div>
 </body>

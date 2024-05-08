@@ -1,0 +1,30 @@
+.content-card{
+    padding: 10px;
+}
+
+mat-card-content{
+    display: flex;
+    
+}
+
+.table-detalle{
+    width: 100%;;
+    border: 1px;
+    
+}
+.tdcenter{
+    text-align: center;
+}
+
+.div1{
+    width: 60%;
+}
+
+
+mat-card-actions{
+    font-size: 30px;
+    font-weight: bolder;
+}
+mat-card-footer{
+    text-align: end;
+}

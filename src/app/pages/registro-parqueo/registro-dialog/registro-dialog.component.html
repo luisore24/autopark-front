@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Marca</h1>
+<h1 mat-dialog-title>Registrar Nuevo Parqueo</h1>
 
 <div mat-dialog-content>
   <mat-form-field appearance="fill">
@@ -6,29 +6,28 @@
     <input matInput [(ngModel)]="placa">
   </mat-form-field>
 
-  <div mat-dialog-content>
-    <mat-form-field appearance="fill">
-      <mat-label>Tipo Vehiculo</mat-label>
-      <mat-select [compareWith]="compareTipoVehiculo" placeholder="Tipo Vehiculo" [(ngModel)]="tipoVehiculo">
-        <mat-option *ngFor="let tveh of tvehiculo" [value]="tveh">
-          {{ tveh.des_tipoVehiculo }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Marca</mat-label>
-        <mat-select [compareWith]="compareMarcas" placeholder="Marca" [(ngModel)]="marca">
-          <mat-option *ngFor="let marca of marcas" [value]="marca">
-            {{ marca.des_marca }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo Vehiculo</mat-label>
+    <mat-select [compareWith]="compareTipoVehiculo" placeholder="Tipo Vehiculo" [(ngModel)]="tipoVehiculo">
+      <mat-option *ngFor="let tveh of tvehiculo" [value]="tveh">
+        {{ tveh.des_tipoVehiculo }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Marca</mat-label>
+    <mat-select [compareWith]="compareMarcas" placeholder="Marca" [(ngModel)]="marca">
+      <mat-option *ngFor="let marca of marcas" [value]="marca">
+        {{ marca.des_marca }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
 
-    <mat-form-field appearance="fill">
-        <mat-label>Color</mat-label>
-        <input matInput [(ngModel)]="color">
-      </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Color</mat-label>
+    <input matInput [(ngModel)]="color">
+  </mat-form-field>
 
 
 </div>
