@@ -5,7 +5,7 @@ export const guardInterceptor: HttpInterceptorFn = (req, next) => {
 
   const authToken = JSON.stringify(sessionStorage.getItem('access_token'));
 
-  console.log(authToken);
+  
   // Clone the request and add the authorization header
   const authReq = req.clone({
     setHeaders: {

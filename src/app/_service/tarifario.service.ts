@@ -33,5 +33,9 @@ export class TarifarioService {
   deleteTarifario(id:number){
     return this.http.delete(this.url+"/"+id);
   }
+
+  buscarTarifa( id : number){
+    return this.http.get<TarifarioDTO>(this.url+"/buscar/" + id);
+  }
   
 }

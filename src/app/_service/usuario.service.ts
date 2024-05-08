@@ -32,4 +32,8 @@ export class UsuarioService {
   deleteUsuario(id:number){
     return this.http.delete(this.url+"/"+id);
   }
+
+  buscarPorUsuario(usuario: string){
+    return this.http.get<UsuarioDTO>(this.url+"/buscarusuario/"+usuario);
+  }
 }

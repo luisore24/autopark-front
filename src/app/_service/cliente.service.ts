@@ -33,4 +33,7 @@ export class ClienteService {
   deleteCliente(id:number){
     return this.http.delete(this.url+"/"+id);
   }
+  buscarCliente(documento : string){
+    return this.http.get<ClienteDTO>(this.url + "/buscar/"+documento);
+  }
 }

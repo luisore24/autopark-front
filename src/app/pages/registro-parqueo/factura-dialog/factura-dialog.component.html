@@ -1,0 +1,79 @@
+<mat-card>
+    <mat-card-title>GENERAR COMPROBANTE</mat-card-title>
+    <mat-card-content>
+
+        <div mat-dialog-content>
+            <mat-form-field appearance="fill">
+              <mat-label>Nombre del cliente</mat-label>
+              <input matInput [(ngModel)]="cliente.nombres">
+            </mat-form-field>
+        </div>
+
+        <div mat-dialog-content>
+            <mat-form-field appearance="fill">
+              <mat-label>Apellido Paterno</mat-label>
+              <input matInput [(ngModel)]="cliente.apePaterno">
+            </mat-form-field>
+        </div>
+
+        <div mat-dialog-content>
+            <mat-form-field appearance="fill">
+              <mat-label>Apellido Materno</mat-label>
+              <input matInput [(ngModel)]="cliente.apeMaterno">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Tipo Documento</mat-label>
+            <mat-select [compareWith]="compareTipoDocumento" placeholder="Documento" [(ngModel)]="cliente.tipoDocumentoDTO">
+              <mat-option *ngFor="let doc of tDocumento" [value]="doc">
+                {{ doc.descripcion }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        <div mat-dialog-content>
+            <mat-form-field appearance="fill">
+              <mat-label>Nro Documento</mat-label>
+              <input matInput [(ngModel)]="cliente.dni">
+            </mat-form-field>
+        </div>
+
+        <div mat-dialog-content>
+            <mat-form-field appearance="fill">
+              <mat-label>Correo</mat-label>
+              <input matInput [(ngModel)]="cliente.email">
+            </mat-form-field>
+        </div>
+          
+        <mat-divider></mat-divider>
+
+         <table mat-table class="mat-elevation-z8 demo-table">
+            
+            <tr>
+                <th>Placa</th>
+                <th>Tipo Vehiculo</th>
+                <th>Tiempo en Horas</th>
+                <th>Tarifa</th>
+            </tr>
+
+            <tr>
+                <td>{{registro.vehiculoDTO.placa}}</td>
+                <td>{{registro.vehiculoDTO.tipoVehiculoDTO.des_tipoVehiculo}}</td>
+                <td>{{registro.tiempoParqueo}}</td>
+                <td>{{detalle.preciovta}}</td>
+            </tr>
+            
+          </table>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <span>Total : </span>
+        <span matPrefix>S/&nbsp;</span>{{  detalle.importe }}<span matSuffix>.00</span>
+    </mat-card-actions>
+
+    <mat-card-footer >
+        <button mat-button color="accent" class="actions" (click)="aceptar()" cdkFocusInitial>Aceptar</button>
+    </mat-card-footer>
+
+</mat-card>

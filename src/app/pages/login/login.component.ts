@@ -38,6 +38,8 @@ export class LoginComponent {
       'password' : new FormControl('')
     });
 
+    
+
   }
 
   iniciarSesion(){
@@ -69,4 +71,6 @@ export class LoginComponent {
       'usuario' : new FormControl('')
     });
   }
+
+
 }
