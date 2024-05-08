@@ -1,0 +1,61 @@
+<mat-card>
+    <mat-card-title>FACTURA NRO: {{ proforma.id }}</mat-card-title>
+    <mat-card-content>
+
+        <div class="proforma-encabezado">
+
+            <mat-label>CLIENTE</mat-label>
+            <mat-form-field>
+                <input class="input-detail" matInput [(ngModel)]="proforma.clienteDTO.nombres" [disabled]="true">
+            </mat-form-field> 
+
+            <mat-form-field>
+                <input class="input-detail" matInput [(ngModel)]="proforma.fechaParqueo" [disabled]="true">
+            </mat-form-field>
+        </div>
+
+        <div> <!-- class="mat-elevation-z8" -->
+        <table  class="table">
+
+            <tr class="table-header">
+                <th >Item</th>
+                <th class="table-header-detalle">Placa</th>
+                <th>Cantidad Horas</th>
+                <th>Fecha y Hora ingreso</th>
+                <th>Fecha y Hora salida</th>
+                <th>Precio Venta</th>
+                <th>Total</th>
+            </tr>
+
+            <tr *ngFor="let detalle of proforma.parqueoDetalleDTO; let i = index" class="table-row">  
+                <td class="row-item">{{ i + 1 }}</td>
+                <td class="row-producto">{{ detalle.vehiculoDTO.placa }}</td>
+                <td class="row-cantidad">{{ detalle.cantidad }}</td>
+                <td class="row-cantidad">{{ detalle.horaingreso }}</td>
+                <td class="row-cantidad">{{ detalle.horasalida }}</td>
+                <td class="row-precio-venta">
+                    <span matPrefix>S/&nbsp;</span>
+                    {{ detalle.preciovta }}
+                    <span matSuffix>.00</span>
+                </td>
+                <td class="row-total">
+                    <span matPrefix>S/&nbsp;</span>
+                    {{ detalle.importe }}
+                    <span matSuffix>.00</span>
+                </td>
+            </tr>
+
+        </table>  
+    </div>
+    </mat-card-content>
+
+    <!-- <mat-card-actions *ngIf="proforma.detalleProforma" class="total-detalle">
+        <span>Total : </span>
+        <span matPrefix>S/&nbsp;</span>{{  proforma.total }}<span matSuffix>.00</span>
+    </mat-card-actions>
+ -->
+    <mat-card-footer >
+        <button mat-button color="accent" class="actions" (click)="aceptar()" cdkFocusInitial>Aceptar</button>
+    </mat-card-footer>
+
+</mat-card>

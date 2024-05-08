@@ -12,6 +12,7 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { RolComponent } from './pages/rol/rol.component';
 import { TarifarioComponent } from './pages/tarifario/tarifario.component';
 import { RegistroParqueoComponent } from './pages/registro-parqueo/registro-parqueo.component';
+import { RegistroFacturaComponent } from './pages/registro-factura/registro-factura.component';
 
 
 export const routes: Routes = [
@@ -28,7 +29,8 @@ export const routes: Routes = [
     { path : 'rol', component : RolComponent , canActivate: [guardGuard]},
     { path : 'tipodocumento', component : TipoDocumentoComponent , canActivate: [guardGuard]},
     { path : 'tarifario', component : TarifarioComponent , canActivate: [guardGuard]},
-    { path : 'parqueos', component : RegistroParqueoComponent, canActivate: [guardGuard]}
+    { path : 'parqueos', component : RegistroParqueoComponent, canActivate: [guardGuard]},
+    { path : 'registros', component : RegistroFacturaComponent, canActivate: [guardGuard]}
 
 ];
 

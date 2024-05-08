@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>System Advance</title>
+  <title>AutoPark System</title>
 </head>
 
 <body>
 
   <mat-toolbar color="primary" *ngIf="loginService.isLogged()">
-    <button mat-icon-button class="example-icon" (click)="sidenav.toggle()" >
+    <button mat-icon-button class="example-icon" (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <span>System Solutions</span>
@@ -38,19 +38,19 @@
         <span>Clientes</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/vehiculo']"  class="button-span">
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/vehiculo']" class="button-span">
         <span>Vehiculos</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/tipovehiculo']"  class="button-span">
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/tipovehiculo']" class="button-span">
         <span>Tipo de Vehiculos</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-button (click)="sidenav.toggle()"  [routerLink]="['/marca']"  class="menu-button">
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/marca']" class="menu-button">
         <span>Marcas</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-button (click)="sidenav.toggle()"  [routerLink]="['/estacionamiento']"  class="button-span">
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/estacionamiento']" class="button-span">
         <span>Estacionamientos</span>
       </button>
       <mat-divider></mat-divider>
@@ -58,11 +58,11 @@
         <span>Tipos de Documento</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-button (click)="sidenav.toggle()"  [routerLink]="['/usuario']" class="button-span">
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/usuario']" class="button-span">
         <span>Usuarios</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-button (click)="sidenav.toggle()"  [routerLink]="['/rol']" class="button-span">
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/rol']" class="button-span">
         <span>Roles</span>
       </button>
       <mat-divider></mat-divider>
@@ -70,6 +70,12 @@
         <span>Tarifario</span>
       </button>
       <mat-divider></mat-divider>
+      <button mat-button (click)="sidenav.toggle()" [routerLink]="['/registros']" class="button-span">
+        <span>Registro Facturas</span>
+      </button>
+      <mat-divider></mat-divider>
+
+
     </mat-sidenav>
     <mat-sidenav-content [ngClass]="loginService.isLogged() ? 'container-logged' : 'container-login'">
       <router-outlet></router-outlet>

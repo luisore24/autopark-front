@@ -10,12 +10,13 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
 //import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterOutlet,MatSnackBarModule,MatButtonModule,MatDividerModule,MatSidenavModule,MatSlideToggleModule,MatIconModule,MatMenuModule,MatToolbarModule],
+  imports: [MatExpansionModule, CommonModule, RouterModule, RouterOutlet,MatSnackBarModule,MatButtonModule,MatDividerModule,MatSidenavModule,MatSlideToggleModule,MatIconModule,MatMenuModule,MatToolbarModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
